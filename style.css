@@ -1,0 +1,291 @@
+:root {
+  --primary-color: #6c63ff;
+  --accent-color: #ff6584;
+  --bg-color: #f7f8fc;
+  --text-color: #333;
+  --border-radius: 10px;
+  --card-bg: #ffffff;
+  --input-bg: #ffffff;
+  --muted-text: #555;
+  --transition: all .3s ease;
+}
+
+/* Dark theme overrides */
+body.theme-dark {
+  --bg-color: #0f101a;
+  --text-color: #e8e8f2;
+  --primary-color: #8c7dff;
+  --accent-color: #ff8fb1;
+  --card-bg: #1f2036;
+  --input-bg: #1b1b30;
+  --muted-text: #aaa;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg-color);
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: var(--text-color);
+  transition: var(--transition);
+  min-height: 100vh;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container_full {
+  width: 100%;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 30px;
+  transition: var(--transition);
+}
+
+.image-wrapper {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.image-wrapper img {
+  border-radius: 8px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+  max-height: 200px;
+  object-fit: cover;
+}
+
+.headline h1 {
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+.budget-app {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.content-left,
+.content-right {
+  flex: 1 1 45%;
+}
+
+.enter-budget-box,
+.add-expense-box {
+  background: var(--card-bg);
+  padding: 20px;
+  margin-bottom: 20px;
+  border-left: 5px solid var(--primary-color);
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+.theme-selector {
+  margin-bottom: 15px;
+}
+
+.theme-selector label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.85rem;
+  color: var(--muted-text);
+}
+
+.content-left label {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  display: block;
+  color: var(--muted-text);
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 2px solid rgba(0,0,0,0.05);
+  border-radius: var(--border-radius);
+  outline: none;
+  font-size: 1rem;
+  transition: border 0.2s, background 0.3s;
+  background: var(--input-bg);
+  color: var(--text-color);
+}
+
+input:focus,
+select:focus {
+  border-color: var(--primary-color);
+}
+
+button {
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  margin-right: 10px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: var(--accent-color);
+}
+
+#reset-app-btn {
+  background-color: #ff4444;
+}
+
+#reset-app-btn:hover {
+  background-color: #cc0000;
+}
+
+/* Ensure the card row stretches and items have equal height */
+.balances {
+  display: flex;
+  gap: 15px;
+  align-items: stretch;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+/* Make each card vertically structured and centered */
+.balances .items {
+  flex: 1;
+  background-color: var(--card-bg);
+  margin: 0 10px;
+  padding: 20px;
+  border-radius: var(--border-radius);
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  transition: var(--transition);
+  min-width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Constrain and normalize the logo image inside each card */
+.balances .items .logo img {
+  max-width: 100%;
+  width: 140px;
+  height: auto;
+  object-fit: contain;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+/* Amount styling: keep symbol and value baseline-aligned */
+.amount-wrapper {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  font-weight: bold;
+  margin-top: 8px;
+  font-size: 1.6rem;
+}
+
+.budget-amount {
+  color: #2ecc71;
+}
+
+.expenses-amount {
+  color: #e74c3c;
+}
+
+.balance-amount {
+  color: #3498db;
+}
+
+.search-export {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+#search-expense {
+  padding: 8px 12px;
+  width: 70%;
+  border-radius: var(--border-radius);
+  border: 2px solid rgba(0,0,0,0.1);
+  background: var(--input-bg);
+  color: var(--text-color);
+}
+
+#export-csv-btn {
+  background-color: #28a745;
+}
+
+#export-csv-btn:hover {
+  background-color: #218838;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  background: var(--card-bg);
+}
+
+thead {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+th, td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  font-size: 0.9rem;
+}
+
+tr:hover {
+  background-color: rgba(0,0,0,0.03);
+}
+
+.del-btn {
+  background: none;
+  color: red;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+}
+
+.edit-btn {
+  background: none;
+  color: #007bff;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+}
+
+/* Optional: unify the color of labels and spacing inside cards */
+.balances .items p {
+  margin-bottom: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+}

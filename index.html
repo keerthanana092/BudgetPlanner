@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Advanced Budget Planner</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="app.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container_full">
+    <div class="headline">
+      <h1>Advanced Budget Planner</h1>
+    </div>
+    <div class="budget-app container">
+      <!-- Left Section -->
+      <div class="content-left">
+        <div class="theme-selector" style="margin-bottom:15px;">
+          <label for="theme">Theme</label>
+          <select id="theme">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+        </div>
+
+        <div class="enter-budget-box">
+          <label for="budget">Enter Your Budget</label>
+          <input type="number" id="budget" />
+
+          <label for="currency">Select Currency</label>
+          <select id="currency">
+            <option value="" disabled selected> ----- </option>
+            <option value="₹">₹</option>
+            <option value="€">€</option>
+            <option value="$">$</option>
+            <option value="¥">¥</option>
+            <option value="﷼">﷼</option>
+          </select>
+
+          <button id="add-budget-btn">Start</button>
+          <button id="reset-app-btn">Reset</button>
+        </div>
+
+        <div class="add-expense-box">
+          <label for="expense-title">Expense Title</label>
+          <input type="text" id="expense-title" placeholder="e.g. Groceries" />
+
+          <label for="expense-amount">Amount</label>
+          <input type="number" id="expense-amount" />
+
+          <label for="expense-date">Date</label>
+          <input type="date" id="expense-date" />
+
+          <label for="expense-category">Category</label>
+          <select id="expense-category">
+            <option value="General">General</option>
+            <option value="Food">Food</option>
+            <option value="Travel">Travel</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Bills">Bills</option>
+          </select>
+
+          <button id="add-expense-btn">Add Expense</button>
+        </div>
+      </div>
+
+      <!-- Right Section -->
+      <div class="content-right">
+        <div class="balances">
+          <div class="budget items">
+            <p>Budget</p>
+            <div class="logo"><img src="budget.jpeg" alt="budget"></div>
+            <div class="budget-amount amount-wrapper">
+              <span class="currency-symbol"></span>
+              <span id="budget-amount">0</span>
+            </div>
+          </div>
+          <div class="expenses items">
+            <p>Expenses</p>
+            <div class="logo"><img src="expense.jpg" alt="expense"></div>
+            <div class="expenses-amount amount-wrapper">
+              <span class="currency-symbol"></span>
+              <span id="expenses-amount">0</span>
+            </div>
+          </div>
+          <div class="balance items">
+            <p>Balance</p>
+            <div class="logo"><img src="remaining.jpeg" alt="balance"></div>
+            <div class="balance-amount amount-wrapper">
+              <span class="currency-symbol"></span>
+              <span id="balance-amount">0</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="search-export">
+          <input type="text" id="search-expense" placeholder="Search expenses...">
+          <button id="export-csv-btn">Export CSV</button>
+        </div>
+
+        <div class="expenses">
+          <table>
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Category</th>
+                <th>Edit</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody id="expense-list">
+              <!-- Expenses will be injected here -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
