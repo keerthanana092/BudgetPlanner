@@ -36,9 +36,3 @@ Allows users to set a budget, add expenses, track balance, search, export to CSV
 ## 🖥️ Demo Screenshot
 
 <img width="1237" height="805" alt="image" src="https://github.com/user-attachments/assets/ef35b296-c6fd-4c54-92e5-0aa34362f513" />
-
-
----
-
-## 📂 Project Structure
-
