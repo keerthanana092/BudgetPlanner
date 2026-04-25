@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Advanced Budget Planner</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
   <script src="app.js" defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
   <div class="container_full">
     <div class="headline">
-      <h1>Advanced Budget Planner</h1>
+      <h1> Budget Planner</h1>
     </div>
     <div class="budget-app container">
       <!-- Left Section -->
@@ -70,15 +73,32 @@
         <div class="balances">
           <div class="budget items">
             <p>Budget</p>
-            <div class="logo"><img src="budget.jpeg" alt="budget"></div>
+            <div class="logo">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-wallet" style="color: #2ecc71;">
+                <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4" />
+                <path d="M3 5v14a2 2 0 0 0 2 2h16v-5" />
+                <path d="M18 12a2 2 0 0 0 0 4h4v-4Z" />
+              </svg>
+            </div>
             <div class="budget-amount amount-wrapper">
               <span class="currency-symbol"></span>
               <span id="budget-amount">0</span>
+              <button id="edit-budget-btn" class="edit-btn" title="Edit Budget"
+                style="display:none; margin-left: 10px; font-size: 1.2rem;">✏️</button>
             </div>
           </div>
           <div class="expenses items">
             <p>Expenses</p>
-            <div class="logo"><img src="expense.jpg" alt="expense"></div>
+            <div class="logo">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-trending-down" style="color: #e74c3c;">
+                <polyline points="22 17 13.5 8.5 8.5 13.5 2 7" />
+                <polyline points="16 17 22 17 22 11" />
+              </svg>
+            </div>
             <div class="expenses-amount amount-wrapper">
               <span class="currency-symbol"></span>
               <span id="expenses-amount">0</span>
@@ -86,12 +106,27 @@
           </div>
           <div class="balance items">
             <p>Balance</p>
-            <div class="logo"><img src="remaining.jpeg" alt="balance"></div>
+            <div class="logo">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-piggy-bank" style="color: #3498db;">
+                <path
+                  d="M19 5c-1.5 0-2.8 1.4-3 2-3.5-1.5-11-.3-11 5 0 1.8 0 3 2 4.5V20h4v-2h3v2h4v-4c1-.5 1.7-1 2-2h0V5z" />
+                <path d="M2 9v1c0 1.1.9 2 2 2h1" />
+                <path d="M16 11h.01" />
+              </svg>
+            </div>
             <div class="balance-amount amount-wrapper">
               <span class="currency-symbol"></span>
               <span id="balance-amount">0</span>
             </div>
           </div>
+        </div>
+
+        <div class="chart-container"
+          style="margin-bottom: 20px; background: var(--card-bg); padding: 20px; border-radius: var(--border-radius); box-shadow: 0 2px 10px rgba(0,0,0,0.05); display: none;"
+          id="chart-wrapper">
+          <canvas id="expenseChart" style="max-height: 250px;"></canvas>
         </div>
 
         <div class="search-export">
@@ -119,5 +154,7 @@
       </div>
     </div>
   </div>
+  <div id="toast-container" class="toast-container"></div>
 </body>
+
 </html>

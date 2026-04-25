@@ -289,3 +289,88 @@ tr:hover {
   font-size: 1rem;
   font-weight: 500;
 }
+
+/* Toast Styles */
+.toast-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.toast {
+  padding: 15px 25px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  animation: slideIn 0.3s ease-out forwards;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+.toast-error { background-color: #ff4d4f; }
+.toast-success { background-color: #52c41a; }
+.toast.fade-out { opacity: 0; }
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Edit button in balance */
+#edit-budget-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  opacity: 0.7;
+  color: var(--text-color);
+  transition: opacity 0.3s ease;
+}
+#edit-budget-btn:hover { opacity: 1; background: none; }
+
+/* SVG Logo Constraints */
+.balances .items .logo svg {
+  margin: 10px 0;
+}
+
+/* Table Row Animations */
+#expense-list tr {
+  animation: slideIn 0.3s ease-out forwards;
+}
+
+/* Responsive Table */
+@media (max-width: 768px) {
+  table, thead, tbody, th, td, tr { display: block; }
+  thead tr { display: none; }
+  tr {
+    background: var(--input-bg);
+    margin-bottom: 15px;
+    border-radius: var(--border-radius);
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  }
+  td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    min-height: 40px;
+  }
+  td:last-child { border-bottom: none; }
+  td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    text-align: left;
+    font-weight: bold;
+    color: var(--muted-text);
+  }
+}
